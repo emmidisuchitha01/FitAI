@@ -1,0 +1,103 @@
+:root {
+  /* Color Palette - Luxury Fashion & AI Neon Accents */
+  --color-primary: #9e4b33;
+  --color-primary-hover: #833924;
+  --color-primary-light: #faece7;
+  --color-primary-glow: rgba(158, 75, 51, 0.25);
+
+  --color-accent: #c4823f;
+  --color-accent-light: #fbf3ea;
+  --color-ai-glow: #e07a5f;
+
+  --color-dark: #1e1917;
+  --color-dark-soft: #38302c;
+  --color-text-muted: #6e645e;
+  --color-text-light: #948880;
+
+  --color-bg-main: #fbf7f4;
+  --color-bg-alt: #f4ece6;
+  --color-card-bg: #ffffff;
+  --color-border: #ebdcd3;
+  --color-border-light: #f5ebe4;
+
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  --shadow-sm: 0 2px 8px rgba(30, 25, 23, 0.04);
+  --shadow-md: 0 8px 24px rgba(30, 25, 23, 0.08);
+  --shadow-lg: 0 16px 40px rgba(30, 25, 23, 0.12);
+  --shadow-glow: 0 0 25px rgba(158, 75, 51, 0.28);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-main);
+  color: var(--color-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4c4ba;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}

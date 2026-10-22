@@ -1,0 +1,725 @@
+
+/* FITAI — Virtual Try-On Shopping UI */
+
+.fitai-tryon-page {
+  --ink: #28252b;
+  --muted: #77727a;
+  --accent: #ff3f6c;
+  --line: #eee9ed;
+  --surface: #ffffff;
+
+  min-height: 100vh;
+  padding: 28px clamp(16px, 5vw, 64px) 24px;
+  background: #faf8f9;
+  color: var(--ink);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.fitai-tryon-page * {
+  box-sizing: border-box;
+}
+
+.fitai-tryon-page button {
+  font-family: inherit;
+}
+
+.fitai-tryon-page button:focus-visible {
+  outline: 3px solid #ff9db4;
+  outline-offset: 3px;
+}
+
+/* Compact heading */
+
+.fitai-tryon-hero {
+  max-width: 1250px;
+  margin: 0 auto 26px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.fitai-hero-copy {
+  max-width: 100%;
+}
+
+.fitai-hero-copy .fitai-eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.fitai-hero-copy h1 {
+  margin: 9px 0 0;
+  font-family: inherit;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 750;
+  letter-spacing: -1.2px;
+  line-height: 1.2;
+}
+
+.fitai-hero-copy h1 span {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.fitai-hero-copy > p,
+.fitai-hero-note,
+.fitai-hero-art {
+  display: none;
+}
+
+/* Workspace heading */
+
+.fitai-workspace {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 0 35px;
+}
+
+.fitai-workspace-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.fitai-workspace-heading .fitai-eyebrow {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.3px;
+}
+
+.fitai-workspace-heading h2 {
+  margin: 4px 0 0;
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+
+.fitai-step-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Main two-column cards */
+
+.fitai-workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 22px;
+}
+
+.fitai-panel {
+  min-width: 0;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 3px 18px rgba(35, 20, 30, 0.035);
+}
+
+.fitai-panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.fitai-number {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff0f4;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fitai-panel-heading h3 {
+  margin: 0 0 3px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fitai-panel-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Upload area */
+
+.fitai-file-input {
+  display: none;
+}
+
+.fitai-upload-area {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 340px;
+  max-height: 470px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow: hidden;
+  border: 1.5px dashed #e4d7dd;
+  border-radius: 8px;
+  background: #fcf8fa;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.fitai-upload-area:hover {
+  border-color: var(--accent);
+  background: #fff5f8;
+}
+
+.fitai-upload-placeholder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.fitai-upload-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffe8ef;
+  color: var(--accent);
+  font-size: 29px;
+}
+
+.fitai-upload-placeholder strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fitai-upload-placeholder > span:not(.fitai-upload-icon):not(.fitai-browse-button) {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitai-browse-button {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 10px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: white;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitai-upload-area.has-image {
+  padding: 0;
+  border-style: solid;
+  background: #f6f3f4;
+}
+
+.fitai-user-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  max-height: 470px;
+  object-fit: contain;
+}
+
+.fitai-photo-overlay {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 2px 10px #00000012;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitai-upload-hint {
+  margin: 10px 0 15px;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.fitai-photo-tip {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #f8f5f6;
+}
+
+.fitai-photo-tip > span {
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.fitai-photo-tip p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.fitai-photo-tip strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+/* Product preview */
+
+.fitai-product-image-wrap {
+  position: relative;
+  display: grid;
+  min-height: 340px;
+  max-height: 470px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #f5f2f0;
+}
+
+.fitai-product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  max-height: 470px;
+  object-fit: contain;
+  transition: transform 0.25s;
+}
+
+.fitai-product-image-wrap:hover .fitai-product-image {
+  transform: scale(1.025);
+}
+
+.fitai-product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 7px 10px;
+  border-radius: 3px;
+  background: white;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.fitai-product-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px 0 14px;
+}
+
+.fitai-product-category {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.fitai-product-details h3 {
+  margin: 5px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.fitai-product-price {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.fitai-product-note {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.fitai-product-note span {
+  color: var(--accent);
+}
+
+/* Main action */
+
+.fitai-generate-area {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 9px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.fitai-generate-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 30px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 750;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.fitai-generate-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #e92e5b;
+  background: #e92e5b;
+}
+
+.fitai-generate-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.fitai-button-arrow {
+  font-size: 17px;
+}
+
+.fitai-button-spinner,
+.fitai-spinner {
+  width: 19px;
+  height: 19px;
+  border: 2px solid #ffffff70;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: fitai-spin 0.8s linear infinite;
+}
+
+.fitai-spinner {
+  width: 32px;
+  height: 32px;
+  border-color: #f5c9d5;
+  border-top-color: var(--accent);
+}
+
+@keyframes fitai-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fitai-generate-caption {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* Status messages */
+
+.fitai-status {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  font-size: 12px;
+}
+
+.fitai-status-success {
+  border-color: #d5eadb;
+  background: #f2faf4;
+  color: #28613b;
+}
+
+.fitai-status-error {
+  border-color: #f4d1d8;
+  background: #fff3f5;
+  color: #b42345;
+}
+
+.fitai-status-info {
+  color: var(--ink);
+}
+
+/* Generated result */
+
+.fitai-result-section {
+  max-width: 1250px;
+  margin: 15px auto 45px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.fitai-result-heading {
+  margin-bottom: 20px;
+}
+
+.fitai-result-heading .fitai-eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.fitai-result-heading h2 {
+  margin: 6px 0;
+  font-size: 25px;
+  font-weight: 750;
+}
+
+.fitai-result-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitai-result-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.65fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  box-shadow: 0 3px 18px #23141e08;
+}
+
+.fitai-result-image-wrap {
+  position: relative;
+  display: grid;
+  min-height: 360px;
+  place-items: center;
+  overflow: hidden;
+  background: #f5f2f0;
+}
+
+.fitai-result-image {
+  display: block;
+  width: 100%;
+  max-height: 650px;
+  object-fit: contain;
+}
+
+.fitai-result-stamp {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  background: white;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.fitai-result-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  padding: 28px;
+}
+
+.fitai-result-details .fitai-eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.fitai-result-details h3 {
+  margin: 8px 0;
+  font-size: 21px;
+}
+
+.fitai-result-details p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.fitai-result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fitai-download-button,
+.fitai-secondary-button {
+  width: 100%;
+}
+
+.fitai-secondary-button {
+  min-height: 48px;
+  border: 1px solid #ded8dd;
+  border-radius: 5px;
+  background: white;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitai-secondary-button:hover {
+  background: #faf6f8;
+}
+
+/* Footer and loading */
+
+.fitai-tryon-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 17px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.fitai-footer-logo {
+  font-size: 19px;
+  font-weight: 850;
+  letter-spacing: -1px;
+}
+
+.fitai-footer-logo span {
+  color: var(--accent);
+}
+
+.fitai-tryon-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.fitai-state {
+  display: flex;
+  min-height: 50vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.fitai-state h2 {
+  margin: 5px 0 0;
+  font-size: 24px;
+}
+
+.fitai-state p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fitai-state-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff0f4;
+  color: var(--accent);
+}
+
+/* Responsive layout */
+
+@media (max-width: 760px) {
+  .fitai-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fitai-upload-area,
+  .fitai-product-image-wrap {
+    min-height: 300px;
+  }
+
+  .fitai-user-preview,
+  .fitai-product-image {
+    min-height: 300px;
+  }
+
+  .fitai-result-card {
+    grid-template-columns: 1fr;
+  }
+
+  .fitai-result-image-wrap {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fitai-tryon-page {
+    padding: 18px 12px;
+  }
+
+  .fitai-workspace-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .fitai-panel {
+    padding: 14px;
+  }
+
+  .fitai-upload-area,
+  .fitai-product-image-wrap {
+    min-height: 260px;
+  }
+
+  .fitai-user-preview,
+  .fitai-product-image {
+    min-height: 260px;
+  }
+
+  .fitai-generate-button {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .fitai-result-details {
+    padding: 20px;
+  }
+
+  .fitai-tryon-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fitai-tryon-page *,
+  .fitai-tryon-page *::before,
+  .fitai-tryon-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
